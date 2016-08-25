@@ -1,0 +1,61 @@
+﻿@using System.Threading.Tasks
+@using Microsoft.AspNetCore.Routing
+@using Microsoft.AspNetCore.Routing.Constraints
+@model RouteCollection
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<div>
+    <table class="table table-fluid table-striped">
+        <caption class="alert alert-info">Total : @Model.Count</caption>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Url Template</th>
+        </tr>
+        </thead>
+        <tbody>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            var route = Model[i] as RouteBase;
+            if (route == null)
+            {
+                continue;
+            }
+            <tr>
+                <td>
+                    @route.Name
+                </td>
+                <td>
+                    <a href="@route.ParsedTemplate.TemplateText">@route.ParsedTemplate.TemplateText</a> 
+                </td>
+                <td>
+                    @{
+                        var allowedMethods =
+                            string.Join(",",
+                                route
+                                    .Constraints
+                                    .Where(x => x.Value is HttpMethodRouteConstraint)
+                                    .Select(x => x.Value)
+                                    .Cast<HttpMethodRouteConstraint>().SelectMany(x => x.AllowedMethods)
+                                );
+                    }
+                    @allowedMethods
+                </td>
+            </tr>
+                        }
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

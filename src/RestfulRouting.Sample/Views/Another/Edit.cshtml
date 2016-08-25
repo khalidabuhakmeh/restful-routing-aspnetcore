@@ -1,0 +1,32 @@
+﻿@using System.Threading.Tasks
+@using RestfulRouting
+@model dynamic
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>New</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+@if (TempData.ContainsKey("message"))
+{
+    <div class="alert alert-info">
+        <h2>Woot!</h2>
+        <p>@TempData["message"]</p>
+    </div>
+}
+<div>
+    @using (Html.BeginForm(FormMethod.Post, new {action = "/another"}))
+    {
+        <input type="submit"/>
+        @Html.Hidden("_method", HttpVerbs.Put)
+    }
+</div>
+</body>
+</html>

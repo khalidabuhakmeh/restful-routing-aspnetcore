@@ -1,0 +1,21 @@
+﻿@model dynamic
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>New</title>
+</head>
+<body>
+<div>
+    @using (Html.BeginForm(FormMethod.Post, new { action = "create" }))
+    {
+        <input type="submit"/>
+    }
+</div>
+</body>
+</html>
