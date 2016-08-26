@@ -1,0 +1,39 @@
+﻿{
+  "version": "0.1.0-*",
+  "authors": [
+    "Khalid Abuhakmeh"
+  ],
+  "description": "Restful Routing approach to registering routes in your ASP.NET MVC Core application",
+  "copyright": "Khalid Abuhakmeh 2016",
+  "title" : "Restful Routing ASP.NET Core",
+  "packOptions": {
+    "summary": "Restful Routing approach to registering routes in your ASP.NET MVC Core application",
+    "licenseUrl": "https://github.com/khalidabuhakmeh/restful-routing-aspnetcore/blob/master/LICENSE",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/khalidabuhakmeh/restful-routing-aspnetcore"
+    },
+    "tags": [
+      "mvc",
+      "asp.net core"
+    ],
+    "requireLicenseAcceptance": false,
+    "owners": [
+      "Khalid Abuhakmeh"
+    ],
+    "releaseNotes": "Initial spike in porting Restful Routing to ASP.NET Core"
+  },
+
+
+  "dependencies": {
+    "NETStandard.Library": "1.6.0",
+    "Microsoft.AspNetCore.Mvc": "1.0.0",
+    "System.Collections.Specialized": "4.0.1",
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  }
+}
