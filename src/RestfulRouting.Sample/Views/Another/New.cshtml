@@ -1,18 +1,19 @@
 ﻿@model dynamic
-
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 
 <html>
 <head>
     <title>New</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
 </head>
 <body>
 <div>
-    @using (Html.BeginForm(FormMethod.Post, new { action = "create" }))
+    @Html.Partial("Message")
+    @using (Html.BeginForm(FormMethod.Post, new { action = "/another" }))
     {
         <input type="submit"/>
     }

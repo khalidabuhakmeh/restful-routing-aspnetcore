@@ -27,6 +27,7 @@ namespace RestfulRouting.Sample.Controllers
 
         public IActionResult Create()
         {
+            TempData["message"] = "We did a post!";
             return RedirectToAction("new");
         }
 

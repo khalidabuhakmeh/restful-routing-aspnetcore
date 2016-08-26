@@ -14,13 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
-@if (TempData.ContainsKey("message"))
-{
-    <div class="alert alert-info">
-        <h2>Woot!</h2>
-        <p>@TempData["message"]</p>
-    </div>
-}
+@Html.Partial("Message")
 <div>
     @using (Html.BeginForm(FormMethod.Post, new {action = "/another"}))
     {
